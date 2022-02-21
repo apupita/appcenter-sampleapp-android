@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.BuildConfig;
 import com.microsoft.appcenter.analytics.Analytics;
 import com.microsoft.appcenter.crashes.Crashes;
 import com.microsoft.appcenter.distribute.Distribute;
@@ -38,16 +39,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_root);
 
         // Initialize SDK
+
+/*
         if (!BuildConfig.APPCENTER_APP_SECRET.equals("")) {
             // Use APPCENTER_APP_SECRET environment variable if it exists
-            AppCenter.start(getApplication(), BuildConfig.APPCENTER_APP_SECRET,
-                    Analytics.class, Crashes.class, Distribute.class);
-        } else {
+            //AppCenter.start(getApplication(), BuildConfig.APPCENTER_APP_SECRET,
+              //      Analytics.class, Crashes.class, Distribute.class);
+
+    } else {
             // Otherwise use the hardcoded string value here
-            AppCenter.start(getApplication(), "<APP SECRET HERE>",
+            AppCenter.start(getApplication(), "2a3616ad-816f-4bd7-9879-b7b669e8a3de",
                     Analytics.class, Crashes.class, Distribute.class);
         }
+*/
 
+        AppCenter.start(getApplication(), "2a3616ad-816f-4bd7-9879-b7b669e8a3de",
+        Analytics.class, Crashes.class, Distribute.class);
 
         if (BuildConfig.DEBUG) {
             AppCenter.setLogLevel(Log.VERBOSE);
